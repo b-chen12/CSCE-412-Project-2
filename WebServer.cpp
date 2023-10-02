@@ -1,7 +1,4 @@
 #include "Requests.h"
+#include "WebServer.h"
 
-class WebServer {
-public:
-    void processRequest(const Request& request);
-    // Add other methods and properties as needed.
-};
+WebServer::WebServer(const std::string& name) : serverName(name), available(true) {}
