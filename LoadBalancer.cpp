@@ -1,9 +1,14 @@
 #include "Requests.h"
+#include "LoadBalancer.h"
 
-class LoadBalancer {
-public:
-    LoadBalancer(int numServers);
-    void addRequest(const Request& request);
-    void simulate(int simulationTime);
-    // Add other methods and properties as needed.
-};
+LoadBalancer::LoadBalancer(int serverCount) {
+    for (int i = 0; i < serverCount; i++) {
+        servers.push_back(WebServer("Server" + std::to_string(i)));
+    }
+}
+
+void LoadBalancer::addRequest(const Request& request) {
+
+    // push instead of push back because of queue
+    requestQueue.push(request);
+}

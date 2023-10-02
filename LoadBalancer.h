@@ -12,4 +12,6 @@ public:
 private:
     std::vector<WebServer> servers;
     std::queue<Request> requestQueue;
+    Request generateRandomRequest();
+
 };
